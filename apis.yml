@@ -1,8 +1,27 @@
 aid: remarkable-ai
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/remarkable-ai.png
 name: Remarkable AI
-description: 'Remarkable AI is a company surfaced as a portfolio company of partech and added to the API
-  Evangelist network as a stub for enrichment. Sector: Applicative SaaS. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: 'Remarkable AI is an AI-powered customer engagement platform for consumer
+  and ecommerce brands, delivering 1:1 personalized messaging across email, SMS, and
+  social channels. Its products span Retain (personalized win-back campaigns for lapsed
+  customers), Support (24/7 AI-plus-human customer service that converts tickets into
+  sales), and Acquire (AI-driven social engagement on TikTok, YouTube, X, and Reddit).
+  The platform is used by 1,000+ ecommerce brands including SAXX, Hyper Skin, Nomadica,
+  Kindra, StoryWorth, and Hot Topic, with plans starting at $1,500/month. Remarkable
+  AI was surfaced as a portfolio company of Partech and added to the API Evangelist
+  network. It publishes no public developer API, SDKs, or developer documentation as
+  of this enrichment pass.'
 url: https://raw.githubusercontent.com/api-evangelist/remarkable-ai/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,10 +31,16 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
 - Applicative Saas
+- Customer Engagement
+- Personalization
+- Ecommerce
+- Artificial Intelligence
+- Customer Support
+- Marketing
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -23,5 +48,20 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: VulnerabilityDisclosure
+  url: security/remarkable-ai-vulnerability-disclosure.yml
+- type: Security
+  url: security/remarkable-ai-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/remarkable-ai-domain-security.yml
 - type: Website
   url: https://www.beremarkable.ai/
+- type: Blog
+  url: https://www.beremarkable.ai/blog
+- type: SecurityPolicy
+  url: https://www.beremarkable.ai/security
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 2
+  pass: local-v1
