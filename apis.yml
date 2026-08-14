@@ -19,9 +19,15 @@ description: 'Remarkable AI is an AI-powered customer engagement platform for co
   sales), and Acquire (AI-driven social engagement on TikTok, YouTube, X, and Reddit).
   The platform is used by 1,000+ ecommerce brands including SAXX, Hyper Skin, Nomadica,
   Kindra, StoryWorth, and Hot Topic, with plans starting at $1,500/month. Remarkable
-  AI was surfaced as a portfolio company of Partech and added to the API Evangelist
-  network. It publishes no public developer API, SDKs, or developer documentation as
-  of this enrichment pass.'
+  AI is the trading name of Chatdesk, Inc., which rebranded in 2024; its own terms of
+  service state "We (Chatdesk, Inc. DBA Remarkable AI)", and the legacy chatdesk.com
+  brand still carries the live pricing page, the responsible-disclosure program, and the
+  Teams/Trends/Shift product surfaces. Remarkable AI was surfaced as a portfolio company
+  of Partech and added to the API Evangelist network. It integrates INBOUND with roughly
+  34 third-party platforms (Shopify, Gorgias, Zendesk, Klaviyo, Kustomer, Freshdesk,
+  Salesforce, TikTok and others) by consuming their APIs, but publishes no outbound API
+  of its own: no OpenAPI, GraphQL SDL, MCP server, agent card, SDK, CLI, webhook catalog
+  or developer portal was found across seven hosts on two domains.'
 url: https://raw.githubusercontent.com/api-evangelist/remarkable-ai/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -31,7 +37,14 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-21'
+modified: '2026-08-13'
+x-also-known-as:
+- name: Chatdesk
+  relationship: former brand / legal entity
+  legal_entity: Chatdesk, Inc.
+  domain: chatdesk.com
+  evidence: https://www.beremarkable.ai/legal/terms
+  quote: We (Chatdesk, Inc. DBA Remarkable AI) create software and solutions...
 tags:
 - Company
 - Applicative Saas
@@ -60,8 +73,57 @@ common:
   url: https://www.beremarkable.ai/blog
 - type: SecurityPolicy
   url: https://www.beremarkable.ai/security
+- type: LLMsTxt
+  url: llms/remarkable-ai-llms.txt
+- type: Lifecycle
+  url: lifecycle/remarkable-ai-lifecycle.yml
+- type: StatusPage
+  url: lifecycle/remarkable-ai-lifecycle.yml
+- type: Plans
+  url: plans/remarkable-ai-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/remarkable-ai-rate-limits.yml
+- type: Support
+  url: https://help.beremarkable.ai/
+- type: Pricing
+  url: https://www.chatdesk.com/pricing
+- type: Login
+  url: https://app.beremarkable.ai/
+- type: TermsOfService
+  url: https://www.beremarkable.ai/legal/terms
+- type: PrivacyPolicy
+  url: https://www.beremarkable.ai/legal/privacy-policy
 x-enrichment:
-  date: '2026-07-21'
-  status: enriched
-  artifacts_added: 2
+  date: '2026-08-13'
+  status: minimal
+  artifacts_added: 5
+  artifacts_updated: 2
   pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    Remarkable AI (Chatdesk, Inc.) sells an AI-plus-human customer-engagement service, not
+    a developer product: its 34 "one-click integrations" all consume OTHER vendors' APIs
+    inbound, and across seven hosts on two domains the only API surfaces that exist are
+    internal app plumbing — api.chatdesk.com answers HTTP 403 "Missing Authentication
+    Token" on every path including the root, and the Spring Boot springdoc endpoint at
+    trends.chatdesk.com/v3/api-docs HTTP 302s to /logout — while the marketing site, the
+    59-entry help-center llms.txt and the integrations page contain zero occurrences of
+    "API", "webhook", "API key" or "developer".
+  evidence:
+  - url: https://api.chatdesk.com/
+    status: 403
+  - url: https://trends.chatdesk.com/v3/api-docs
+    status: 302
+  - url: https://www.beremarkable.ai/openapi.json
+    status: 404
+  - url: https://www.chatdesk.com/openapi.json
+    status: 404
+  - url: https://www.beremarkable.ai/.well-known/agent-card.json
+    status: 404
+  - url: https://help.beremarkable.ai/llms.txt
+    status: 200
+  - url: https://www.chatdesk.com/integrations
+    status: 200
+  checked: '2026-08-13'
