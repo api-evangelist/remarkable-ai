@@ -1,0 +1,52 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  Documentation search across https://www.beremarkable.ai, https://help.beremarkable.ai
+  (including its llms.txt article index) and the legacy https://www.chatdesk.com, plus
+  live unauthenticated probes of https://api.chatdesk.com and https://trends.chatdesk.com.
+checked: '2026-08-13'
+
+limit_count: 0
+
+published_limits: []
+
+response_headers:
+  observed: []
+  note: >-
+    No rate-limit response headers could be observed. There is no anonymously reachable
+    API endpoint on which to see them: https://api.chatdesk.com returns HTTP 403
+    {"message":"Missing Authentication Token"} on every path including the root, and
+    https://trends.chatdesk.com 302s every API path to /logout. Absence of an observation
+    is NOT evidence that the backend omits the headers — it is evidence that nothing is
+    readable without credentials.
+
+exhaustion_status_code: not-observed
+retry_after: not-observed
+
+quota_model:
+  note: >-
+    The only volume ceilings this company publishes are COMMERCIAL, not technical: plan
+    quotas measured in resolved tickets, personalized conversations (400/month at $1,000,
+    500/month at $1,500) and confirmed social engagements (600/month at $900). Those are
+    recorded in plans/remarkable-ai-plans-pricing.yml and are deliberately NOT restated
+    here as rate limits — a monthly conversation allowance sold to a brand is not a
+    per-key request ceiling an agent has to respect at runtime, and conflating the two
+    would put a fabricated technical limit into the catalog.
+
+reason_undocumented: >-
+  Remarkable AI publishes no public API, so there is no rate-limit surface to document.
+  See x-coverage in apis.yml.
+
+evidence:
+- url: https://api.chatdesk.com/
+  status: 403
+  finding: 'AWS API Gateway: {"message":"Missing Authentication Token"}, identical on every path'
+- url: https://trends.chatdesk.com/v3/api-docs
+  status: 302
+  finding: redirects to /logout; no anonymous response to inspect for headers
+- url: https://help.beremarkable.ai/llms.txt
+  status: 200
+  finding: 59-line help-center index, zero articles matching /api|webhook|rate.?limit|token/
+- url: https://www.chatdesk.com/integrations
+  status: 200
+  finding: 34 named integrations, no API, webhook, API-key or rate-limit language

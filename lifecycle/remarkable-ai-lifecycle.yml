@@ -1,0 +1,104 @@
+generated: '2026-08-13'
+method: searched
+source: https://chatdesk.statuspage.io/api/v2/summary.json
+checked: '2026-08-13'
+
+# BRAND NOTE (STEP 0c ownership justification for a different domain):
+# The status page sits on the legacy brand's domain. https://www.beremarkable.ai/legal/terms
+# states verbatim: "We (Chatdesk, Inc. DBA Remarkable AI) create software and solutions..."
+# — Remarkable AI is the trading name of Chatdesk, Inc., which rebranded in 2024. The
+# Remarkable AI help center at help.beremarkable.ai still documents the same products by
+# their Chatdesk names (Chatdesk Teams, Chatdesk Trends), and trends.chatdesk.com redirects
+# unauthenticated users to https://app.beremarkable.ai/analyze. Same company, one brand ahead
+# of the other.
+
+provider: Chatdesk, Inc. DBA Remarkable AI
+
+status_page:
+  present: true
+  url: https://chatdesk.statuspage.io
+  platform: Atlassian Statuspage
+  page_id: sxn1l78sb9hf
+  brand: Chatdesk (legacy)
+  machine_readable: true
+  api:
+    summary: https://chatdesk.statuspage.io/api/v2/summary.json
+    status: https://chatdesk.statuspage.io/api/v2/status.json
+    components: https://chatdesk.statuspage.io/api/v2/components.json
+    format: Statuspage API v2 (JSON, unauthenticated)
+  http_status: 200
+  current_indicator: none
+  current_description: All Systems Operational
+  page_updated_at: '2022-08-25T23:24:22.078Z'
+  components:
+  - name: Teams
+    status: operational
+  - name: Trends
+    status: operational
+  - name: Shift
+    status: operational
+  - name: Teams Mobile App
+    status: operational
+    description: Application used by Chatdesk Experts only
+  open_incidents: 0
+  scheduled_maintenances: 0
+  staleness_warning: >-
+    The page's own updated_at is 2022-08-25 and it lists zero incidents in its history,
+    so it has not been curated since the components were first created — nearly four
+    years before this probe and two years before the Remarkable AI rebrand. It is present
+    and machine-readable, but it should not be read as an actively operated incident
+    channel. It also covers the four end-user products, not an API.
+
+# NEGATIVE FINDINGS — probed and genuinely absent. Recorded so a later pass does not
+# re-litigate them, and so the absence is legible rather than looking like an omission.
+versioning_policy:
+  present: false
+  note: >-
+    No API versioning policy is published. There is no public API to version — see
+    x-coverage in apis.yml.
+
+deprecation_policy:
+  present: false
+  rfc8594_sunset_header: not-observed
+  note: >-
+    No deprecation or sunset policy published on beremarkable.ai or chatdesk.com, and no
+    Deprecation/Sunset response headers could be observed because no anonymously reachable
+    API endpoint exists. api.chatdesk.com answers HTTP 403 "Missing Authentication Token"
+    on every path. NO Deprecation pointer is emitted.
+
+sla:
+  present: false
+  note: >-
+    No published uptime SLA. https://www.chatdesk.com/pricing advertises "accelerated SLAs"
+    as a feature of the Dedicated plan, but no numeric availability target, credit schedule
+    or SLA document is published anywhere on either brand's site.
+
+changelog:
+  present: false
+  note: >-
+    No dated product or API changelog found on either brand. The blog at
+    https://www.beremarkable.ai/blog is marketing content, not a release log. NO ChangeLog
+    pointer is emitted.
+
+deprecated_operations:
+  derived_from: none
+  count: 0
+  note: No OpenAPI exists in this repo, so no deprecated operations could be derived.
+
+evidence:
+- url: https://chatdesk.statuspage.io/api/v2/summary.json
+  status: 200
+  finding: real Statuspage page named "Chatdesk", 4 operational components, 0 incidents
+- url: https://beremarkable.statuspage.io
+  status: 200
+  finding: >-
+    FALSE POSITIVE — not a status page. Resolves to Atlassian's Statuspage marketing site
+    (title "Real-Time Incident Communication with Statuspage | Atlassian"). A control probe
+    of https://zzznotarealcompany123.statuspage.io also returns 200, so any unclaimed
+    *.statuspage.io subdomain answers 200. Rejected.
+- url: https://status.beremarkable.ai
+  status: 0
+  finding: TLS handshake failed — no certificate covers this name; host does not exist
+- url: https://status.chatdesk.com
+  status: 0
+  finding: DNS NXDOMAIN

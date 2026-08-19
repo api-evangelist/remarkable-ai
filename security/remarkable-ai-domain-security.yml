@@ -1,17 +1,92 @@
-generated: '2026-07-21'
+generated: '2026-08-13'
 method: probed
-source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+source: >-
+  Live DNS/TLS/HTTP probes. apis.yml carries no apis[] and no baseURL, so
+  probe-domain-security.py could only reach www.beremarkable.ai; the remaining hosts and
+  the second domain were probed directly during contract discovery and folded in here.
+checked: '2026-08-13'
+
 hosts:
 - host: www.beremarkable.ai
+  role: marketing website
   https: true
   tls_version: TLSv1.3
   cert_expires: Sep 19 18:31:33 2026 GMT
   hsts: true
   hsts_max_age: 31536000
+
+- host: app.beremarkable.ai
+  role: customer application (SPA)
+  https: true
+  tls_version: TLSv1.3
+  hsts: false
+
+- host: help.beremarkable.ai
+  role: help center (Intercom-hosted)
+  https: true
+  tls_version: TLSv1.3
+  hsts: false
+
+- host: www.chatdesk.com
+  role: legacy brand marketing website
+  https: true
+  tls_version: TLSv1.3
+  hsts: true
+  hsts_max_age: 31536000
+
+- host: api.chatdesk.com
+  role: internal backend (AWS API Gateway)
+  https: true
+  tls_version: TLSv1.3
+  hsts: false
+
+- host: trends.chatdesk.com
+  role: Trends application (Spring Boot)
+  https: true
+  tls_version: TLSv1.2
+  tls_note: >-
+    Negotiates TLS 1.2 only; the other six hosts all reach TLS 1.3. Not a defect, but it
+    is the weakest transport posture in the estate.
+  hsts: true
+  hsts_max_age: 31536000
+
 domains:
 - domain: beremarkable.ai
+  role: current brand
   dnssec: false
   caa: []
   spf: false
   dmarc: true
   dmarc_policy: none
+  dmarc_record: 'v=DMARC1; p=none; rua=mailto:aneto@beremarkable.ai'
+
+- domain: chatdesk.com
+  role: legacy brand
+  dnssec: false
+  caa: []
+  spf: true
+  spf_record: 'v=spf1 include:_spf.google.com ~all include:2225701.spf06.hubspotemail.net'
+  dmarc: true
+  dmarc_policy: reject
+  dmarc_record: 'v=DMARC1; p=reject; sp=none; pct=100; ri=86400; rua=mailto:info@chatdesk.com'
+
+findings:
+- id: email-auth-regressed-on-rebrand
+  severity: notable
+  summary: >-
+    The current brand's domain is weaker at email authentication than the brand it
+    replaced. beremarkable.ai publishes NO SPF record at all and a DMARC policy of
+    p=none (monitor only). The legacy chatdesk.com publishes both an SPF record and
+    DMARC p=reject. This is worth flagging because 1:1 email delivery — including
+    "primary inbox delivery" — is the product this company sells; the domain carrying
+    the new brand is the one with no SPF and no enforcing DMARC.
+  evidence:
+  - 'dig TXT beremarkable.ai -> no v=spf1 record'
+  - 'dig TXT _dmarc.beremarkable.ai -> v=DMARC1; p=none'
+  - 'dig TXT chatdesk.com -> v=spf1 include:_spf.google.com ~all'
+  - 'dig TXT _dmarc.chatdesk.com -> v=DMARC1; p=reject'
+- id: no-caa-no-dnssec
+  severity: minor
+  summary: >-
+    Neither domain publishes CAA records or is DNSSEC-signed, so certificate issuance is
+    unconstrained and DNS answers are unauthenticated. Common across the catalog.

@@ -1,0 +1,187 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.chatdesk.com/pricing
+checked: '2026-08-13'
+http_status: 200
+
+# WHAT IS BEING PRICED — read this before using the numbers.
+# These are SERVICE plans for an AI-plus-human customer-engagement service sold to
+# ecommerce brands. They are NOT API plans. Remarkable AI publishes no API, so there is
+# no per-call, per-token or per-endpoint pricing to record. The unit of billing is a
+# resolved ticket, a personalized conversation, or a confirmed social engagement.
+#
+# BRAND NOTE (STEP 0c ownership justification for a different domain):
+# The pricing page is on the legacy brand's domain. https://www.beremarkable.ai/legal/terms
+# states verbatim: "We (Chatdesk, Inc. DBA Remarkable AI) create software and solutions..."
+# — Remarkable AI is the trading name of Chatdesk, Inc., which rebranded in 2024. The
+# current brand's own site publishes NO pricing page at all: its sitemap
+# (https://www.beremarkable.ai/sitemap.xml, HTTP 200) lists 28 URLs and contains no
+# /pricing, only /book-a-demo and /revenue-calculator. The live, publicly readable price
+# list is therefore the one still standing at www.chatdesk.com/pricing.
+
+provider: Chatdesk, Inc. DBA Remarkable AI
+currency: USD
+billing_periods:
+- monthly
+- yearly
+yearly_discount: '10%'
+self_serve_signup: false
+sales_motion: >-
+  Every tier terminates in a "Book a demo" / "Let's chat" call to action. There is no
+  self-serve checkout and no published card-on-file signup.
+free_trial:
+  present: true
+  description: free two-week pilot
+  quote: >-
+    "Realize the value of 1:1 customer conversations right away with a free two-week pilot."
+
+plan_count: 6
+plans:
+
+- name: Proactive for email (1:1 retention messages)
+  slug: proactive-email
+  price: 1000
+  price_quote: 'Plans starting at $1,000 / month'
+  currency: USD
+  period: month
+  price_floor: true
+  included_quota:
+    unit: personalized conversations
+    amount: 400
+  channels:
+  - email
+  - SMS
+  - direct messages
+  features:
+  - Custom campaigns and messages
+  overage: not-published
+
+- name: Proactive for social (social engagement)
+  slug: proactive-social
+  price: 900
+  price_quote: 'Plans starting at $900 / month'
+  currency: USD
+  period: month
+  price_floor: true
+  included_quota:
+    unit: confirmed engagements (likes, replies, or follows)
+    amount: 600
+  channels:
+  - TikTok
+  - YouTube
+  - Reddit
+  - X (Twitter)
+  - Threads
+  overage: not-published
+
+- name: 1:1 customer engagement (pay-per-conversation)
+  slug: engagement-pay-per-conversation
+  price: 1500
+  price_quote: 'Plans starting at $1,500 / month'
+  currency: USD
+  period: month
+  price_floor: true
+  included_quota:
+    unit: conversations per month
+    amount: 500
+  channels:
+  - email
+  - social
+  - SMS
+  features:
+  - 24/7 coverage from real people
+  - Strategy creation and messaging
+  overage: not-published
+
+- name: Shift (call deflection)
+  slug: shift
+  price: 99
+  price_quote: 'Plans starting at $99 / month'
+  currency: USD
+  period: month
+  price_floor: true
+  included_quota:
+    unit: not-published
+    amount: null
+  features:
+  - Call deflection
+  - Call reduction dashboard
+  - 'Upper-level plans add: SMS support, advanced or custom reporting, custom integrations, automatic customer insights'
+  setup_fee: 0
+  setup_fee_note: Free setup
+
+- name: Trends (customer insights)
+  slug: trends
+  price: 0
+  price_quote: 'Plans starting at $0 / month'
+  currency: USD
+  period: month
+  price_floor: true
+  free_tier: true
+  included_quota:
+    unit: not-published
+    amount: null
+  features:
+  - Aggregate and analyze customer feedback from all channels
+  - 'Paid tiers add: custom tags, search tools'
+
+- name: On-demand / Dedicated (pay-per-ticket support)
+  slug: on-demand-dedicated
+  price: null
+  price_quote: null
+  currency: USD
+  period: month
+  calculator_only: true
+  calculator_note: >-
+    Two variants (On-demand = pay-per-ticket-solved; Dedicated = adds full-time experts,
+    accelerated SLAs, custom workflows and a discounted per-resolution rate). Neither
+    publishes a number in the served HTML: the price renders only after a client-side
+    volume slider runs, so the raw markup contains the literal placeholders "X / month"
+    and "X00 tickets resolved per month". A machine reading this page — or an agent, or a
+    buyer with JavaScript disabled — cannot obtain the price. Recorded as null rather
+    than guessed.
+  included_quota:
+    unit: tickets resolved per month
+    amount: null
+  features:
+  - Social, email, chat and SMS support
+  - Up to 24/7 coverage from real humans
+  - Unlimited, one-click integrations
+  volume_discount: >-
+    "Do you offer discounts for higher volumes? Yes! As your volume grows..." — rates are
+    negotiated, not published.
+
+fees:
+- name: Order-system integration setup fee
+  amount: 99
+  currency: USD
+  one_time: true
+  applies_to:
+  - Shopify
+  - Magento
+  quote: >-
+    "To integrate with order systems like Shopify and Magento, there is a $99 setup fee."
+- name: Standard integration setup
+  amount: 0
+  currency: USD
+  note: >-
+    "Included with all plans. Always free. Unlimited integrations" — connecting a helpdesk
+    or support channel carries no setup fee.
+
+api_pricing:
+  present: false
+  note: >-
+    No API pricing of any kind: no per-request tier, no rate-limit-by-plan table, no
+    metered developer plan. Consistent with the absence of any public API — see
+    x-coverage in apis.yml.
+
+evidence:
+- url: https://www.chatdesk.com/pricing
+  status: 200
+  finding: six published tiers, four with a floor price, two calculator-only
+- url: https://www.beremarkable.ai/sitemap.xml
+  status: 200
+  finding: no /pricing URL on the current brand; only /book-a-demo and /revenue-calculator
+- url: https://www.beremarkable.ai/legal/terms
+  status: 200
+  finding: '"We (Chatdesk, Inc. DBA Remarkable AI)" — establishes the domain relationship'

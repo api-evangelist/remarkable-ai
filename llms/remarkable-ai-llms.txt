@@ -1,0 +1,59 @@
+# Remarkable AI Help Center
+
+> Help Center
+
+## Retain AI FAQ
+
+- [Retain AI dashboard metrics](https://help.beremarkable.ai/en/articles/12168626-retain-ai-dashboard-metrics.md)
+- [Retain AI attribution metrics](https://help.beremarkable.ai/en/articles/12415870-retain-ai-attribution-metrics.md): Here are descriptions and examples of the attribution metrics you can find on the Retain AI dashboard
+- [Retain AI Attributed Revenue](https://help.beremarkable.ai/en/articles/13142002-retain-ai-attributed-revenue.md)
+- [Understanding Your Campaign Insights](https://help.beremarkable.ai/en/articles/13856662-understanding-your-campaign-insights.md): Customer Selection & Product Recommendation Strategies
+
+## Getting Started on Teams
+
+- [Freshdesk Integration Setup Guide for Teams](https://help.beremarkable.ai/en/articles/3773278-freshdesk-integration-setup-guide-for-teams.md): Route emails in Freshdesk to your Experts with Chatdesk Teams
+- [Gorgias Integration Setup Guide for Teams \(OAuth\)](https://help.beremarkable.ai/en/articles/6716387-gorgias-integration-setup-guide-for-teams-oauth.md)
+- [Enabling Instagram Direct Messages from the Instagram App](https://help.beremarkable.ai/en/articles/6971342-enabling-instagram-direct-messages-from-the-instagram-app.md)
+- [Creating Schedules in Chatdesk Teams](https://help.beremarkable.ai/en/articles/7025574-creating-schedules-in-chatdesk-teams.md)
+- [TikTok Integration Setup Guide](https://help.beremarkable.ai/en/articles/7846554-tiktok-integration-setup-guide.md)
+- [Kustomer Integration Setup Guide for Teams](https://help.beremarkable.ai/en/articles/3773274-kustomer-integration-setup-guide-for-teams.md): Route emails in Kustomer to your Experts with Chatdesk Teams
+- [Chatdesk App for Slack Setup](https://help.beremarkable.ai/en/articles/6706373-chatdesk-app-for-slack-setup.md)
+- [Gorgias Integration Setup Guide for Teams](https://help.beremarkable.ai/en/articles/3773268-gorgias-integration-setup-guide-for-teams.md): Route emails and chats in Gorgias to your Experts with Chatdesk Teams
+- [Zendesk Email Setup Guide for Teams](https://help.beremarkable.ai/en/articles/3773253-zendesk-email-setup-guide-for-teams.md): Route emails in Zendesk to your Experts with Chatdesk Teams
+- [Twitter Integration Setup Guide for Teams](https://help.beremarkable.ai/en/articles/3773195-twitter-integration-setup-guide-for-teams.md): Route messages and Timeline tweets in Twitter to your Experts with Chatdesk Teams
+- [Instagram Integration Setup Guide for Teams](https://help.beremarkable.ai/en/articles/3773181-instagram-integration-setup-guide-for-teams.md): Route comments and mentions in Instagram to your Experts with Chatdesk Teams
+- [Facebook Integration Setup Guide for Teams](https://help.beremarkable.ai/en/articles/3773106-facebook-integration-setup-guide-for-teams.md): Route posts, comments, and messages in Facebook to your Experts with Chatdesk Teams
+- [Salesforce Service Cloud Integration Setup](https://help.beremarkable.ai/en/articles/6935076-salesforce-service-cloud-integration-setup.md)
+- [Configuring Gorgias Chat for Chatdesk Teams](https://help.beremarkable.ai/en/articles/8229893-configuring-gorgias-chat-for-chatdesk-teams.md)
+- [Configuring TikTok Ads permissions](https://help.beremarkable.ai/en/articles/8307903-configuring-tiktok-ads-permissions.md)
+- [Dixa Integration Setup Guide for Teams](https://help.beremarkable.ai/en/articles/9675869-dixa-integration-setup-guide-for-teams.md)
+- [TikTok Shop Integration Setup Guide for Teams](https://help.beremarkable.ai/en/articles/9767559-tiktok-shop-integration-setup-guide-for-teams.md)
+- [Shopify Setup Guide](https://help.beremarkable.ai/en/articles/11778757-shopify-setup-guide.md): Connect your Shopify Account to Retain AI
+
+## Teams FAQ
+
+- [Roles and permissions for Facebook and Instagram Ad comments](https://help.beremarkable.ai/en/articles/4419990-roles-and-permissions-for-facebook-and-instagram-ad-comments.md): Connect Facebook account with necessary permissions for Ad comments
+- [Instagram Ads Integration](https://help.beremarkable.ai/en/articles/4386012-instagram-ads-integration.md): Route comments from Instagram Ads to the Chatdesk platform
+- [Login to Remarkable AI with your Google account](https://help.beremarkable.ai/en/articles/8757127-login-to-remarkable-ai-with-your-google-account.md)
+
+## Getting Started on Trends
+
+- [Front Integration Setup Guide for Trends](https://help.beremarkable.ai/en/articles/3965428-front-integration-setup-guide-for-trends.md): Automatically tag emails and chats received in Front with Chatdesk Trends
+- [Salesforce Chat Integration V1 Setup Guide for Trends](https://help.beremarkable.ai/en/articles/6503078-salesforce-chat-integration-v1-setup-guide-for-trends.md)
+- [Gorgias Integration Setup Guide for Trends \(OAuth\)](https://help.beremarkable.ai/en/articles/6716432-gorgias-integration-setup-guide-for-trends-oauth.md)
+- [Salesforce Service Cloud Integration Setup Guide for Chatdesk Trends](https://help.beremarkable.ai/en/articles/6960945-salesforce-service-cloud-integration-setup-guide-for-chatdesk-trends.md)
+- [TikTok Integration Setup Guide for Trends](https://help.beremarkable.ai/en/articles/7045836-tiktok-integration-setup-guide-for-trends.md)
+- [LiveChat Integration Setup Guide for Trends](https://help.beremarkable.ai/en/articles/3965418-livechat-integration-setup-guide-for-trends.md): Automatically tag chats and emails received in LiveChat with Chatdesk Trends
+- [Salesforce Service Cloud Integration V1 Setup Guide for Trends](https://help.beremarkable.ai/en/articles/6502991-salesforce-service-cloud-integration-v1-setup-guide-for-trends.md)
+- [Zendesk Email Setup Guide for Trends](https://help.beremarkable.ai/en/articles/3768394-zendesk-email-setup-guide-for-trends.md): Automatically tag emails received in Zendesk with Chatdesk Trends
+- [Yotpo Integration Setup Guide for Trends](https://help.beremarkable.ai/en/articles/3768388-yotpo-integration-setup-guide-for-trends.md): Automatically tag reviews received in Yotpo with Chatdesk Trends
+- [Twitter Integration Setup Guide for Trends](https://help.beremarkable.ai/en/articles/3768382-twitter-integration-setup-guide-for-trends.md): Automatically tag messages and Timeline tweets received in Twitter with Chatdesk Trends
+- [Shopify Integration Setup Guide for Trends](https://help.beremarkable.ai/en/articles/3768374-shopify-integration-setup-guide-for-trends.md): Filter feedback by Shopify customer order data with Chatdesk Trends
+- [Powerfront Inside Integration Setup Guide for Trends](https://help.beremarkable.ai/en/articles/3768364-powerfront-inside-integration-setup-guide-for-trends.md): Automatically tag chats received in Powerfront Inside with Chatdesk Trends
+- [Olark Integration Setup Guide for Trends](https://help.beremarkable.ai/en/articles/3768353-olark-integration-setup-guide-for-trends.md): Automatically tag chats received in Olark with Chatdesk Trends
+- [Kustomer Integration Setup Guide for Trends](https://help.beremarkable.ai/en/articles/3768345-kustomer-integration-setup-guide-for-trends.md): Automatically tag emails received in Kustomer with Chatdesk Trends
+- [Intercom Integration Setup Guide for Trends](https://help.beremarkable.ai/en/articles/3768342-intercom-integration-setup-guide-for-trends.md): Automatically tag emails and chats received in Intercom with Chatdesk Trends
+- [Instagram Integration Setup Guide for Trends](https://help.beremarkable.ai/en/articles/3768327-instagram-integration-setup-guide-for-trends.md): Automatically tag comments and mentions received in Instagram with Chatdesk Trends
+- [Freshdesk Integration Setup Guide for Trends](https://help.beremarkable.ai/en/articles/3768316-freshdesk-integration-setup-guide-for-trends.md): Automatically tag emails received in Freshdesk with Chatdesk Trends
+- [Facebook Integration Setup Guide for Trends](https://help.beremarkable.ai/en/articles/3768291-facebook-integration-setup-guide-for-trends.md): Automatically tag posts, comments, and messages in Facebook with Chatdesk Trends
+- [Delighted Integration Setup Guide for Trends](https://help.beremarkable.ai/en/articles/3768276-delighted-integration-setup-guide-for-trends.md): Automatically tag surveys from Delighted with Chatdesk Trends

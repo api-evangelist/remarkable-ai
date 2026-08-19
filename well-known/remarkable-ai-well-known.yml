@@ -1,0 +1,215 @@
+generated: '2026-08-13'
+method: probed
+source: >-
+  Live unauthenticated GET of the RFC 8615 /.well-known/ discovery surface on every
+  host associated with Chatdesk, Inc. DBA Remarkable AI. apis.yml carries no apis[]
+  entries and no baseURL, so the host list was assembled from the website, the app
+  host, the Intercom help center, and the legacy chatdesk.com brand hosts.
+checked: '2026-08-13'
+
+# POINTER DECISION — no WellKnown and no SecurityTxt pointer is emitted from this file.
+# Exactly one path on one host returned a real document (help.beremarkable.ai
+# /.well-known/security.txt, HTTP 200, text/plain, 713 bytes) and that document says
+# plainly that it is NOT this provider's: it opens
+#   "# Intercom - reporting security vulnerability to Intercom"
+# and self-declares
+#   Canonical: https://app.intercom.com/.well-known/security.txt
+# It is served by Intercom, the SaaS platform hosting the help center, on a CNAMEd
+# subdomain. Crediting Remarkable AI with a WellKnown/SecurityTxt posture on the
+# strength of their help-desk vendor's file would be false attribution, so the hit is
+# recorded here as evidence and no common[] pointer is wired.
+#
+# SOFT-200 WARNING: app.beremarkable.ai, teams.chatdesk.com and trends.chatdesk.com are
+# single-page apps whose CDN answers HTTP 200 with the SAME 3,441-byte HTML shell for
+# EVERY path, including a deliberately nonsensical control path. Every 200 on those
+# three hosts below is a catch-all, not a document.
+
+hosts:
+- host: https://www.beremarkable.ai
+  role: marketing website
+  control_probe:
+    path: /.well-known/zzz-control-nonexistent-9931
+    status: 404
+    note: host returns honest 404s; statuses below are trustworthy
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+
+- host: https://help.beremarkable.ai
+  role: help center (Intercom-hosted)
+  control_probe:
+    path: /.well-known/zzz-control-nonexistent-9931
+    status: 404
+    note: host returns honest 404s; statuses below are trustworthy
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/plain
+    bytes: 713
+    document: true
+    content_owner: Intercom
+    first_party: false
+    canonical: https://app.intercom.com/.well-known/security.txt
+    contact:
+    - https://bugcrowd.com/intercom
+    - mailto:security@intercom.com
+    note: >-
+      Real RFC 9116 document, but it is Intercom's platform security.txt served on a
+      CNAMEd help-center subdomain, not a policy published by Remarkable AI. Not saved
+      as a repo artifact and not wired to a SecurityTxt pointer. Remarkable AI's own
+      disclosure contact lives on an HTML page instead — see
+      security/remarkable-ai-vulnerability-disclosure.yml.
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+
+- host: https://app.beremarkable.ai
+  role: customer application (SPA)
+  control_probe:
+    path: /.well-known/zzz-control-nonexistent-9931
+    status: 200
+    bytes: 3441
+    note: SOFT-200 CATCH-ALL — every path returns the same app shell; all 200s below are false
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    document: false
+    soft_200: true
+  - path: /.well-known/openid-configuration
+    status: 200
+    document: false
+    soft_200: true
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    document: false
+    soft_200: true
+  - path: /.well-known/api-catalog
+    status: 200
+    document: false
+    soft_200: true
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    document: false
+    soft_200: true
+
+- host: https://www.chatdesk.com
+  role: legacy brand marketing website
+  control_probe:
+    path: /.well-known/zzz-control-nonexistent-9931
+    status: 404
+    note: host returns honest 404s; statuses below are trustworthy
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+
+- host: https://api.chatdesk.com
+  role: internal backend (AWS API Gateway)
+  control_probe:
+    path: /.well-known/zzz-control-nonexistent-9931
+    status: 403
+    note: >-
+      Every path returns HTTP 403 {"message":"Missing Authentication Token"} with
+      x-amzn-errortype MissingAuthenticationTokenException — the AWS API Gateway
+      response for an unmatched or unauthorized route. No path is distinguishable
+      from any other; nothing is readable anonymously.
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+  - path: /.well-known/ai-plugin.json
+    status: 403
+
+- host: https://teams.chatdesk.com
+  role: Expert-facing application (SPA)
+  control_probe:
+    path: /.well-known/zzz-control-nonexistent-9931
+    status: 200
+    bytes: 3441
+    note: SOFT-200 CATCH-ALL — same 3,441-byte shell as app.beremarkable.ai
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    document: false
+    soft_200: true
+  - path: /.well-known/openid-configuration
+    status: 200
+    document: false
+    soft_200: true
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    document: false
+    soft_200: true
+  - path: /.well-known/api-catalog
+    status: 200
+    document: false
+    soft_200: true
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    document: false
+    soft_200: true
+
+- host: https://trends.chatdesk.com
+  role: Trends application (Spring Boot behind an SPA shell)
+  control_probe:
+    path: /.well-known/zzz-control-nonexistent-9931
+    status: 200
+    bytes: 3441
+    note: SOFT-200 CATCH-ALL on /.well-known/*; the Spring Boot origin behind it 302s to /logout
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    document: false
+    soft_200: true
+  - path: /.well-known/openid-configuration
+    status: 200
+    document: false
+    soft_200: true
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    document: false
+    soft_200: true
+  - path: /.well-known/api-catalog
+    status: 200
+    document: false
+    soft_200: true
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    document: false
+    soft_200: true
+
+summary:
+  hosts_probed: 7
+  paths_probed: 35
+  real_documents_found: 1
+  first_party_documents_found: 0
+  soft_200_hosts: 3
+  pointers_emitted: []
+  note: >-
+    Zero first-party /.well-known documents. No WellKnown, SecurityTxt, APICatalog,
+    OpenIDConnect or AIPlugin pointer is warranted.
