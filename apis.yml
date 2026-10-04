@@ -66,7 +66,7 @@ tags:
 - Personalization
 - E-Commerce
 - Artificial Intelligence
-- Customer-Support
+- Customer Support
 - Marketing
 tags_raw:
 - Company
@@ -77,6 +77,7 @@ tags_raw:
 - Artificial Intelligence
 - Customer Support
 - Marketing
+- Customer-Support
 apis: []
 maintainers:
 - FN: Kin Lane
