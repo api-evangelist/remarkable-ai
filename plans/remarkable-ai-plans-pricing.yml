@@ -185,3 +185,54 @@ evidence:
 - url: https://www.beremarkable.ai/legal/terms
   status: 200
   finding: '"We (Chatdesk, Inc. DBA Remarkable AI)" — establishes the domain relationship'
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - hybrid
+  - subscription
+  units: []
+  plans:
+  - name: Proactive for email (1:1 retention messages)
+    access: other
+    model: hybrid
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Proactive for social (social engagement)
+    access: other
+    model: hybrid
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: 1:1 customer engagement (pay-per-conversation)
+    access: other
+    model: hybrid
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Shift (call deflection)
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Trends (customer insights)
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: On-demand / Dedicated (pay-per-ticket support)
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - month
